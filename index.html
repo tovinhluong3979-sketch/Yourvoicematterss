@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vẻ đẹp của tiếng nói – Những tiếng nói tạo nên thay đổi. Dự án học tập của học sinh.">
+<title>Vẻ đẹp của tiếng nói | Your Voice Matters</title>
+<style>
+:root{
+  --ink:#172b3a; --muted:#5e6b73; --paper:#f7f5ef; --white:#fff;
+  --teal:#1e6866; --gold:#c69a4b; --line:#e4e0d6; --soft:#e9f0ed;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+a{color:inherit}
+.wrap{width:min(1120px, calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(247,245,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:800;letter-spacing:.08em;font-size:.9rem}
+.brand span{display:block;font-weight:500;letter-spacing:.16em;color:var(--teal);font-size:.65rem}
+nav{display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-size:.88rem;color:var(--muted);transition:color 0.3s}
+nav a:hover{color:var(--teal)}
+.menu{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 12px;color:var(--ink);cursor:pointer}
+
+.hero{padding:92px 0 82px;background:linear-gradient(120deg,#e9efeb 0%,#f7f5ef 58%,#efe7d7 100%);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(30,104,102,.18);border-radius:50%;right:-100px;top:-100px;box-shadow:0 0 0 35px rgba(30,104,102,.035),0 0 0 75px rgba(30,104,102,.025)}
+.eyebrow{color:var(--teal);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.72rem}
+h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2.8rem,7vw,5.7rem);line-height:1.02;max-width:820px;margin:18px 0}
+h1 em{color:var(--teal);font-style:normal}
+.lead{max-width:660px;color:#45555d;font-size:1.12rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;text-decoration:none;border-radius:4px;padding:12px 19px;font-weight:700;font-size:.9rem;border:1px solid var(--teal);transition:all 0.3s}
+.btn.primary{background:var(--teal);color:white}
+.btn.primary:hover{background:#164e4c}
+.btn.secondary{color:var(--teal);background:transparent}
+.btn.secondary:hover{background:rgba(30,104,102,0.08)}
+
+section{padding:76px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px}
+.kicker{font-size:.72rem;letter-spacing:.18em;color:var(--gold);font-weight:800;text-transform:uppercase}
+h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.1rem);font-weight:500;line-height:1.12;margin:8px 0}
+.section-head p{max-width:420px;color:var(--muted);margin:0}
+
+.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+.quote{background:var(--ink);color:white;padding:34px;border-radius:8px;display:flex;flex-direction:column;justify-content:space-between;min-height:245px;box-shadow:0 10px 30px rgba(23,43,58,0.15)}
+.quote p{font-family:Georgia,serif;font-size:1.65rem;line-height:1.35;margin:0}
+.quote small{color:#cbd8d4;letter-spacing:.08em}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.principle{background:white;border:1px solid var(--line);padding:22px;border-radius:8px;transition:transform 0.3s}
+.principle:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.04)}
+.principle b{display:block;color:var(--teal);font-family:Georgia,serif;font-size:1.55rem;margin-bottom:8px}
+.principle p{color:var(--muted);font-size:.92rem;margin:0}
+
+.teams{background:#eeece4}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.team{background:white;border-radius:8px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform 0.3s, box-shadow 0.3s}
+.team:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.08)}
+.team-img-wrap{width:100%;height:180px;overflow:hidden;position:relative}
+.team-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.team:hover .team-img-wrap img{transform:scale(1.05)}
+.team-top{padding:20px 24px 15px;min-height:150px}
+.team-no{font-size:.72rem;letter-spacing:.16em;color:var(--gold);font-weight:800}
+.team h3{font-family:Georgia,serif;font-size:1.6rem;font-weight:500;margin:8px 0}
+.team .question{font-weight:700;line-height:1.4;font-size:0.95rem}
+.team-body{padding:0 24px 24px;display:flex;flex-direction:column;flex:1}
+.team-body p{color:var(--muted);font-size:.9rem}
+.tag{display:inline-block;background:var(--soft);color:var(--teal);font-size:.73rem;font-weight:700;padding:5px 9px;border-radius:20px;margin:3px 4px 3px 0}
+.team a{margin-top:auto;padding-top:15px;color:var(--teal);font-weight:700;text-decoration:none;font-size:.9rem}
+.team a:hover{text-decoration:underline}
+.team.digital{border-top:5px solid #527c9b}.team.equal{border-top:5px solid #b47d72}.team.green{border-top:5px solid #64866b}
+
+.project{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:start}
+.project-note{background:var(--soft);padding:28px;border-radius:8px;border:1px solid rgba(30,104,102,0.15)}
+.project-note h3{font-family:Georgia,serif;font-size:1.6rem;font-weight:500;margin:0 0 10px}
+.project-note p{color:var(--muted);margin:0}
+.steps{counter-reset:step}
+.step{position:relative;padding:0 0 24px 58px;border-left:1px solid var(--line);margin-left:18px}
+.step:last-child{border-left-color:transparent}
+.step:before{counter-increment:step;content:"0" counter(step);position:absolute;left:-19px;top:0;width:38px;height:38px;border-radius:50%;background:var(--ink);color:white;display:grid;place-items:center;font-size:.75rem;font-weight:700}
+.step h3{margin:0 0 5px;font-size:1.05rem}
+.step p{margin:0;color:var(--muted);font-size:.93rem}
+
+.gallery{background:var(--ink);color:white}
+.gallery .section-head p{color:#cbd4d2}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gallery-item{border:1px solid rgba(255,255,255,.15);border-radius:8px;overflow:hidden;background:rgba(255,255,255,.03);transition:transform 0.3s}
+.gallery-item:hover{transform:translateY(-4px);background:rgba(255,255,255,.06)}
+.gallery-img{width:100%;height:160px;object-fit:cover}
+.gallery-content{padding:20px}
+.gallery-item .symbol{font-family:Georgia,serif;font-size:1.5rem;color:#d8bd86;margin-bottom:5px}
+.gallery-item h3{margin:4px 0 8px;font-size:1.05rem}
+.gallery-item p{color:#cbd4d2;font-size:.88rem;margin:0}
+
+.submit{background:#e9efeb}
+.submit-box{display:flex;justify-content:space-between;align-items:center;gap:30px;background:white;padding:32px;border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 25px rgba(0,0,0,0.03)}
+.submit-box h2{font-size:2.2rem}
+.submit-box p{max-width:580px;color:var(--muted)}
+.note{font-size:.8rem;color:var(--muted)}
+
+footer{background:#12232f;color:#dce5e1;padding:32px 0}
+footer .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer small{color:#aebdb8}
+
+@media(max-width:760px){
+ nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);padding:18px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;box-shadow:0 10px 20px rgba(0,0,0,0.05)}
+ nav.open{display:flex}.menu{display:block}
+ .hero{padding:68px 0}.intro-grid,.project{grid-template-columns:1fr}
+ .principles,.team-grid,.gallery-grid{grid-template-columns:1fr}
+ .section-head{display:block}.section-head p{margin-top:12px}
+ .submit-box{display:block}.submit-box .btn{margin-top:15px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" style="text-decoration:none">YOUR VOICE MATTERS<span>VẺ ĐẸP CỦA TIẾNG NÓI</span></a>
+    <button class="menu" id="menuBtn" aria-label="Mở trình đơn">☰</button>
+    <nav id="navLinks">
+      <a href="#about">Thông điệp</a><a href="#teams">Ba tiếng nói</a><a href="#project">Dự án</a><a href="#gallery">Lan tỏa</a><a href="#join">Tham gia</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">DỰ ÁN HỌC TẬP · NÓI VÀ NGHE · NGỮ VĂN 11</div>
+    <h1>Vẻ đẹp của <em>tiếng nói</em></h1>
+    <p class="lead">Những tiếng nói khác biệt cùng gặp nhau để nhìn nhận vấn đề, chia sẻ góc nhìn và khơi nguồn thay đổi tích cực trong cuộc sống.</p>
+    <div class="actions">
+      <a class="btn primary" href="#teams">Khám phá ba chủ đề</a>
+      <a class="btn secondary" href="#project">Tìm hiểu dự án</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">01 / TINH THẦN DỰ ÁN</div><h2>Một tiếng nói có thể<br>mở ra nhiều suy nghĩ.</h2></div>
+      <p>Chúng ta không chỉ học cách trình bày một quan điểm. Chúng ta học cách lắng nghe, kiểm chứng thông tin, tôn trọng khác biệt và biến điều mình tin tưởng thành hành động có trách nhiệm.</p>
+    </div>
+    <div class="intro-grid">
+      <div class="quote"><p>“Nói bằng lí lẽ. Lắng nghe bằng sự tôn trọng. Hành động bằng trách nhiệm.”</p><small>YOUR VOICE MATTERS</small></div>
+      <div class="principles">
+        <div class="principle"><b>01</b><p>Quan điểm rõ ràng, có chính kiến và biết đặt vấn đề.</p></div>
+        <div class="principle"><b>02</b><p>Lí lẽ thuyết phục, dẫn chứng đáng tin cậy và được kiểm chứng.</p></div>
+        <div class="principle"><b>03</b><p>Đối thoại văn minh, phản biện ý kiến chứ không công kích con người.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="teams" id="teams">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">02 / BA TIẾNG NÓI</div><h2>Ba vấn đề – Ba góc nhìn</h2></div>
+      <p>Mỗi nhóm lựa chọn một vấn đề gần gũi với đời sống học sinh, phát triển quan điểm và đề xuất cách tạo nên thay đổi tích cực.</p>
+    </div>
+    <div class="team-grid">
+      <article class="team digital">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Digital Generation">
+        </div>
+        <div class="team-top"><div class="team-no">EKIP 01</div><h3>Digital Generation</h3><div class="question">Mạng xã hội: Kết nối con người hay tạo nên những khoảng cách?</div></div>
+        <div class="team-body">
+          <p>Từ một lượt chia sẻ, bình luận hay bức ảnh được đăng tải, chúng ta nhìn lại trách nhiệm của mỗi người trong không gian số.</p>
+          <div style="margin: 10px 0;"><span class="tag">Ứng xử số</span><span class="tag">Tin giả</span><span class="tag">Tôn trọng riêng tư</span></div>
+          <p><b>Gợi ý sản phẩm:</b> Bản tin học đường, infographic, podcast ngắn hoặc video tình huống.</p>
+          <a href="#join">Xem cách tham gia →</a>
+        </div>
+      </article>
+
+      <article class="team equal">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Equal Voices">
+        </div>
+        <div class="team-top"><div class="team-no">EKIP 02</div><h3>Equal Voices</h3><div class="question">Bình đẳng giới: Có phải mọi định kiến giới đều bắt đầu từ những điều rất nhỏ?</div></div>
+        <div class="team-body">
+          <p>Từ những lời khen, lời chúc tưởng chừng vô tư, chúng ta nhận diện các khuôn mẫu giới và suy nghĩ về quyền được lựa chọn của mỗi người.</p>
+          <div style="margin: 10px 0;"><span class="tag">Định kiến giới</span><span class="tag">Tôn trọng lựa chọn</span><span class="tag">Cơ hội bình đẳng</span></div>
+          <p><b>Gợi ý sản phẩm:</b> Tiểu phẩm đối thoại, video ngắn, bộ thông điệp truyền thông.</p>
+          <a href="#join">Xem cách tham gia →</a>
+        </div>
+      </article>
+
+      <article class="team green">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Green Future">
+        </div>
+        <div class="team-top"><div class="team-no">EKIP 03</div><h3>Green Future</h3><div class="question">Sống xanh: Trào lưu nhất thời hay trách nhiệm của thế hệ trẻ?</div></div>
+        <div class="team-body">
+          <p>Từ những thói quen hằng ngày, chúng ta cùng bàn về tiêu dùng có trách nhiệm và những hành động thiết thực vì môi trường.</p>
+          <div style="margin: 10px 0;"><span class="tag">Tiêu dùng bền vững</span><span class="tag">Giảm rác thải</span><span class="tag">Hành động xanh</span></div>
+          <p><b>Gợi ý sản phẩm:</b> Infographic, thử thách sống xanh, video hoặc nhật kí hành động.</p>
+          <a href="#join">Xem cách tham gia →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">03 / TỪ LỜI NÓI ĐẾN HÀNH ĐỘNG</div><h2>Tiếng nói không dừng<br>lại trên sân khấu.</h2></div>
+      <p>Sau phần trình bày và phản biện, mỗi ekip tiếp tục phát triển thông điệp thành một sản phẩm truyền thông có thể chia sẻ trong cộng đồng học đường.</p>
+    </div>
+    <div class="project">
+      <div class="project-note">
+        <h3>Vẻ đẹp của tiếng nói – Những tiếng nói tạo nên thay đổi</h3>
+        <p>Mục tiêu của dự án là đưa kiến thức và quan điểm đã học vào đời sống. Sản phẩm cần ngắn gọn, chính xác, dễ tiếp cận và khuyến khích một hành động tích cực cụ thể.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Thống nhất thông điệp</h3><p>Xác định điều nhóm muốn người xem suy nghĩ hoặc thay đổi sau khi tiếp nhận sản phẩm.</p></div>
+        <div class="step"><h3>Lựa chọn hình thức</h3><p>Thiết kế infographic, video ngắn, bài viết, podcast hoặc bộ quy tắc hành động phù hợp với chủ đề.</p></div>
+        <div class="step"><h3>Kiểm chứng và hoàn thiện</h3><p>Kiểm tra nguồn dẫn, tính chính xác, bản quyền hình ảnh/âm thanh và sự phù hợp của ngôn từ trước khi gửi giáo viên.</p></div>
+        <div class="step"><h3>Chia sẻ và lan tỏa</h3><p>Công bố sản phẩm qua kênh được nhà trường/giáo viên cho phép; khuyến khích người xem thực hiện một hành động cụ thể.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker" style="color:#d8bd86">04 / GÓC LAN TỎA</div><h2 style="color:white">Mỗi hành động nhỏ,<br>một thay đổi có thật.</h2></div>
+      <p>Khu vực này dành để đăng tải sản phẩm sau khi được giáo viên kiểm duyệt. Nội dung bên dưới là định hướng để các nhóm phát triển.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Think before you share">
+        <div class="gallery-content">
+          <div class="symbol">01</div>
+          <h3>Think before you share</h3>
+          <p>Kiểm chứng trước khi chia sẻ. Tôn trọng quyền riêng tư. Không tiếp tay cho bình luận gây tổn thương.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Respect every choice">
+        <div class="gallery-content">
+          <div class="symbol">02</div>
+          <h3>Respect every choice</h3>
+          <p>Không áp đặt khuôn mẫu. Ghi nhận năng lực và cá tính. Chia sẻ trách nhiệm trong học tập và cuộc sống.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1532996122724-e3c359a0b15b?auto=format&fit=crop&w=600&q=80" alt="Start small, live green">
+        <div class="gallery-content">
+          <div class="symbol">03</div>
+          <h3>Start small, live green</h3>
+          <p>Hạn chế đồ dùng một lần. Sử dụng tài nguyên hợp lí. Duy trì thói quen xanh mỗi ngày.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="submit" id="join">
+  <div class="wrap">
+    <div class="submit-box">
+      <div>
+        <div class="kicker">05 / CÙNG GÓP TIẾNG NÓI</div>
+        <h2>Bạn muốn bắt đầu từ đâu?</h2>
+        <p>Hãy chọn một vấn đề bạn quan tâm, chia sẻ góc nhìn bằng lí lẽ và dẫn chứng đáng tin cậy, sau đó đề xuất một hành động vừa sức để cùng thực hiện.</p>
+        <p class="note" style="margin-top: 8px;">Đối với học sinh tham gia dự án: gửi sản phẩm cho giáo viên phụ trách theo hướng dẫn của lớp. Chỉ đăng tải hình ảnh, tên và thông tin cá nhân khi đã được cho phép.</p>
+      </div>
+      <a class="btn primary" href="mailto:giaovien@example.com?subject=San%20pham%20du%20an%20Your%20Voice%20Matters">Gửi sản phẩm</a>
+    </div>
+    <p class="note" style="margin-top:14px">Lưu ý cho giáo viên: thay địa chỉ email mẫu bằng địa chỉ nhận bài chính thức hoặc thay nút này bằng liên kết Google Form/Google Drive của lớp trước khi công bố.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><b>YOUR VOICE MATTERS</b><br><small>Vẻ đẹp của tiếng nói · Dự án học tập Ngữ văn 11</small></div>
+    <small>Speak with reason. Listen with respect. Act with responsibility.</small>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('navLinks');
+menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+</script>
+</body>
+</html>
